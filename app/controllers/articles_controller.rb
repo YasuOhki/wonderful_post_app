@@ -1,59 +1,53 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show edit update destroy ]
-
-  # GET /articles or /articles.json
+  # GET /article
   def index
     @articles = Article.all
   end
 
-  # GET /articles/1 or /articles/1.json
+  # GET /article/1
   def show
   end
 
-  # GET /articles/new
+  # GET /article/new
   def new
     @article = Article.new
   end
 
-  # GET /articles/1/edit
+  # GET /article/1/edit
   def edit
   end
 
-  # POST /articles or /articles.json
+  # POST /article
   def create
     @article = Article.new(article_params)
 
     respond_to do |format|
       if @article.save
         format.html { redirect_to article_url(@article), notice: "Article was successfully created." }
-        format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /articles/1 or /articles/1.json
+  # PATCH/PUT /article/1
   def update
     respond_to do |format|
       if @article.update(article_params)
         format.html { redirect_to article_url(@article), notice: "Article was successfully updated." }
-        format.json { render :show, status: :ok, location: @article }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /articles/1 or /articles/1.json
+  # DELETE /article/1
   def destroy
     @article.destroy
 
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: "Article was successfully destroyed." }
-      format.json { head :no_content }
+      format.html { redirect_to article_url, notice: "Article was successfully destroyed." }
     end
   end
 
@@ -67,4 +61,6 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:title, :content)
     end
+
+
 end
