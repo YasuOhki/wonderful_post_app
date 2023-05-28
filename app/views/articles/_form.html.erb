@@ -2,9 +2,9 @@
   <% if article.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(article.errors.count, "エラー") %> この記事は保存出来ません:</h2>
-
       <ul>
         <% article.errors.each do |error| %>
+
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
