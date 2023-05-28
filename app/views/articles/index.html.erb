@@ -19,9 +19,9 @@
         <td><%= article.content %></td>
         <% #binding.pry %>
         <!--<td><%= link_to '詳細', article %></td> -->
-        <td><%= link_to "詳細", article, class: "btn btn-primary" %></td>
-        <td><%= link_to "編集", edit_article_path(article), class: "btn btn-primary" %></td>
-        <td><%= link_to "削除", article, method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-primary" %></td>
+        <td><%= link_to "詳細", article, class: "btn btn-success" %></td>
+        <td><%= link_to "編集", edit_article_path(article), class: "btn btn-warning" %></td>
+        <td><%= link_to "削除", article, class: "btn btn-danger", method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-primary" %></td>
       </tr>
     <% end %>
   </tbody>
