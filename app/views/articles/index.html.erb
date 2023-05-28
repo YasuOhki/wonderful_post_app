@@ -1,4 +1,7 @@
 <h1>記事一覧</h1>
+<%= link_to "検索", "#", class: "btn btn-primary" %>
+
+<br><%= link_to '記事作成', new_article_path %>
 
 <table>
   <thead>
@@ -15,14 +18,13 @@
         <td><%= article.title %></td>
         <td><%= article.content %></td>
         <% #binding.pry %>
-        <td><%= link_to '詳細', article %></td>
-        <td><%= link_to '編集', edit_article_path(article) %></td>
-        <td><%= link_to '削除', article, method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+        <!--<td><%= link_to '詳細', article %></td> -->
+        <td><%= link_to "詳細", article, class: "btn btn-primary" %></td>
+        <td><%= link_to "編集", edit_article_path(article), class: "btn btn-primary" %></td>
+        <td><%= link_to "削除", article, method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-primary" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to '記事作成', new_article_path %>

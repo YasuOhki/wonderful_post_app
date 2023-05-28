@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
   <head>
     <title>WonderfulPostApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,6 +13,8 @@
   </head>
 
   <body>
+    <div class="container">
     <%= yield %>
+    </div>
   </body>
 </html>
