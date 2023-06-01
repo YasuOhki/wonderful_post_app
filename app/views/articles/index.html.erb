@@ -1,8 +1,16 @@
+
+<!-- ログインしている場合はマイページを表示、ログインしていない場合はログインボタンを表示 -->
+<% if user_signed_in? %>
+  <%= link_to 'マイページ', new_article_path, class: "btn btn-primary" %>
+<% else %>
+  <br><%= link_to 'ログイン', new_user_session_path, class: "btn btn-primary" %>
+<% end %>
+
+
 <h1>記事一覧</h1>
 <%= link_to "検索", "#", class: "btn btn-primary" %>
 
 <br><%= link_to '記事作成', new_article_path %>
-
 <table>
   <thead>
     <tr>
