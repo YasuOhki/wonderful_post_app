@@ -2,8 +2,16 @@
 ja:
   articles:
     index:
+      sign_in: ログイン
+      my_page: マイページ
+      all_articles: 記事一覧
+      new: 記事作成
+      serach: 検索
       title: 題名
       content: 内容
+      show: 詳細
+      edit: 編集
+      destroy: 削除
 
   activerecord:
     errors:
