@@ -28,6 +28,11 @@ ja:
     update:
       success: 記事の更新に成功しました
       failed:  記事の更新に失敗しました
+  layouts:
+    _navbar:
+      log_in: ログイン
+      sign_out: ログアウト
+      registration: 新規登録
   users:
     destroy:
       confirm:  本当にログアウトしますか？

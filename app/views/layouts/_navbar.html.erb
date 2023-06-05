@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <div class="container-fluid">
+    <------TOPへのリンク設置------->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+          <li class="nav-item">
+            <%= link_to t('.registration'), new_user_registration_path, class: "btn btn-primary" %>
+            <%= link_to t('.sign_out'),  destroy_user_session_path, class: "btn btn-primary", method: :delete %>
+            <%= link_to t('.log_in'), new_user_session_path, class: "btn btn-primary" %>
+          </li>
+      </ul>
+    </div>
+  </div>
+</nav>
