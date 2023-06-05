@@ -2,5 +2,5 @@
 
 <%= render 'form', article: @article %>
 
-<%= link_to '更新せず詳細を表示', @article %> |
-<%= link_to '更新せず一覧に戻る', articles_path %>
+<%= link_to t('.show'), @article %> |
+<%= link_to t('.back'), articles_path %>

@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to article_url(@article), notice: "記事の新規作成に成功しました。" }
+        format.html { redirect_to article_url(@article), notice: t('.success') }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
-        format.html { redirect_to article_url(@article), notice: "記事の更新に成功しました。" }
+        format.html { redirect_to article_url(@article), notice: t('.success') }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
