@@ -16,7 +16,7 @@ class Users::SessionsController < Devise::SessionsController
   # DELETE /resource/sign_out
   def destroy
     super
-    format.html { redirect_to articles_url, notice: t('.confirm') }
+    session[:keep_signed_out] = true
   end
 
   # protected
