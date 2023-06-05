@@ -5,7 +5,7 @@ ja:
       show: 詳細
       back: 戻る
     index:
-      sign_in: ログイン
+      log_in: ログイン
       sign_out: ログアウト
       registration: 新規登録
       my_page: マイページ
