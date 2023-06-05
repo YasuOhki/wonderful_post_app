@@ -6,6 +6,8 @@ ja:
       back: 戻る
     index:
       sign_in: ログイン
+      sign_out: ログアウト
+      registration: 新規登録
       my_page: マイページ
       all_articles: 記事一覧
       new: 記事作成
@@ -26,6 +28,9 @@ ja:
     update:
       success: 記事の更新に成功しました
       failed:  記事の更新に失敗しました
+  users:
+    destroy:
+      confirm:  本当にログアウトしますか？
 
   activerecord:
     errors:
