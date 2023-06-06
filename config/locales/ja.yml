@@ -32,7 +32,7 @@ ja:
     _navbar:
       log_in: ログイン
       sign_out: ログアウト
-      registration: 新規登録
+      sign_in: 新規登録
   users:
     destroy:
       confirm:  本当にログアウトしますか？

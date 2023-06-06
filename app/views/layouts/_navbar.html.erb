@@ -1,13 +1,18 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-light">
   <div class="container-fluid">
-    <------TOPへのリンク設置------->
+    <%= link_to "top", articles_path, class: "btn btn-primary" %>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
+        <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to t('.registration'), new_user_registration_path, class: "btn btn-primary" %>
             <%= link_to t('.sign_out'),  destroy_user_session_path, class: "btn btn-primary", method: :delete %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to t('.sign_in'), new_user_registration_path, class: "btn btn-primary" %>
             <%= link_to t('.log_in'), new_user_session_path, class: "btn btn-primary" %>
           </li>
+        <% end %>
       </ul>
     </div>
   </div>
