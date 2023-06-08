@@ -27,7 +27,7 @@ ja:
         remember_me: "次回から自動的にログイン"
     models:
       user: "ユーザ"
-  users:
+  devise:
     confirmations:
       new:
         resend_confirmation_instructions: "アカウント確認メール再送"
@@ -83,3 +83,12 @@ ja:
     unlocks:
       new:
         resend_unlock_instructions: "アカウントの凍結解除方法を再送する"
+  users:
+    shared:
+      links:
+        sign_in: "ログイン"
+        sign_up: "アカウント登録"
+        forgot_your_password: "パスワードを忘れましたか?"
+    sessions:
+      new:
+        sign_in: "ログイン"
