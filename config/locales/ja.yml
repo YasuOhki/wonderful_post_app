@@ -33,6 +33,14 @@ ja:
       log_in: ログイン
       sign_out: ログアウト
       sign_in: 新規登録
+  mypage:
+    index:
+      new: 記事作成
+      title: 題名
+      content: 内容
+      show: 詳細
+      edit: 編集
+      destroy: 削除
   users:
     destroy:
       confirm:  本当にログアウトしますか？
