@@ -1,7 +1,13 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show edit update destroy ]
+
   # GET /article
   def index
+    if user_signed_in?
+      @signed_in_status = 1
+    else
+      @signed_in_status = 0
+    end
     @articles = Article.all
   end
 
@@ -61,6 +67,4 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:title, :content)
     end
-
-
 end
