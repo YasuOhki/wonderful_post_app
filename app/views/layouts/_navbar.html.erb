@@ -5,6 +5,7 @@
       <ul class="navbar-nav">
         <% if user_signed_in? %>
           <li class="nav-item">
+            <%= link_to t('.my_page'), mypage_index_path, class: "btn btn-primary" %>
             <%= link_to t('.sign_out'),  destroy_user_session_path, class: "btn btn-primary", method: :delete %>
           </li>
         <% else %>

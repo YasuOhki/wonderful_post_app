@@ -1,16 +1,12 @@
 
 <!-- ログインしている場合はマイページを表示、ログインしていない場合はログインボタンを表示 -->
 <% if user_signed_in? %>
-  <p> ログイン中 </p>
-  <%= link_to t('.my_page'), mypage_index_path, class: "btn btn-primary" %>
-  <%= link_to t('.sign_out'),  destroy_user_session_path, class: "btn btn-primary", method: :delete %>
+  <p> ログイン中_<%= current_user.email %> </p>
 <% else %>
   <p> ログアウト中 </p>
   <br><%= link_to t('.log_in'), new_user_session_path, class: "btn btn-primary" %>
   <%= link_to t('.registration'), new_user_registration_path, class: "btn btn-primary" %>
 <% end %>
-
-
 
 <h1><%= t('.all_articles')%></h1>
 <%= link_to t('.serach'), "#", class: "btn btn-primary" %>
