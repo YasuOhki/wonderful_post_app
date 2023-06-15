@@ -8,7 +8,6 @@ ja:
       log_in: ログイン
       sign_out: ログアウト
       registration: 新規登録
-      my_page: マイページ
       all_articles: 記事一覧
       new: 記事作成
       serach: 検索
@@ -29,7 +28,8 @@ ja:
       success: 記事の更新に成功しました
       failed:  記事の更新に失敗しました
   layouts:
-    _navbar:
+    navbar:
+      my_page: マイページ
       log_in: ログイン
       sign_out: ログアウト
       sign_in: 新規登録
