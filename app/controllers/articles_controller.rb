@@ -3,12 +3,14 @@ class ArticlesController < ApplicationController
 
   # GET /article
   def index
+    @articles_read_only = Article.all
     if user_signed_in?
-      @signed_in_status = 1
+      tmp_user = User.all
+      tmp_user = tmp_user[current_user.id]
+      @user_articles = tmp_user.articles
     else
-      @signed_in_status = 0
+      @user_articles = nil
     end
-    @articles = Article.all
   end
 
   # GET /article/1
