@@ -9,8 +9,10 @@
 <h1><%= t('.all_articles')%></h1>
 <%= link_to t('.serach'), "#", class: "btn btn-primary" %>
 
-<% if @signed_in_status == 1%>
+<% if user_signed_in? %>
   <br><%= link_to t('.new'), new_article_path %>
+<% else %>
+  <br><%= "記事の作成にはログインが必要です" %>
 <% end %>
 
 <table>
@@ -23,16 +25,25 @@
   </thead>
 
   <tbody>
-    <% @articles.each do |article| %>
+    <% @articles_read_only.each do |article| %>
       <tr>
         <td><%= article.title %></td>
         <td><%= article.content %></td>
         <td><%= link_to t('.show'), article, class: "btn btn-success" %></td>
-        <% if @signed_in_status == 1 && article.user_id == current_user.id%>
+      </tr>
+    <% end %>
+
+    <% if user_signed_in? %>
+
+      <% @user_articles.each do |article| %>
+        <tr>
+          <td><%= article.title %></td>
+          <td><%= article.content %></td>
+          <td><%= link_to t('.show'), article, class: "btn btn-success" %></td>
           <td><%= link_to t('.edit'), edit_article_path(article), class: "btn btn-warning" %></td>
           <td><%= link_to t('.destroy'), article, class: "btn btn-danger", method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
-        <% end %>
-      </tr>
+        </tr>
+       <% end %>
     <% end %>
   </tbody>
 </table>
