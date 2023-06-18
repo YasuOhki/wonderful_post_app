@@ -3,13 +3,20 @@ class ArticlesController < ApplicationController
 
   # GET /article
   def index
-    @articles_read_only = Article.all
     if user_signed_in?
       tmp_user = User.all
       tmp_user = tmp_user[current_user.id]
-      @user_articles = tmp_user.articles
+
+      if tmp_user != nil
+        @user_articles = tmp_user.articles
+      else
+        @user_articles = nil
+      end
+
+      @articles_read_only = Article.where.not(user_id: current_user.id)
     else
       @user_articles = nil
+      @articles_read_only = Article.all
     end
   end
 
