@@ -9,14 +9,17 @@ class ArticlesController < ApplicationController
 
       if tmp_user != nil
         @user_articles = tmp_user.articles
+        @user_articles = @user_articles.page(params[:page])
       else
         @user_articles = nil
       end
 
       @articles_read_only = Article.where.not(user_id: current_user.id)
+      @articles_read_only = @articles_read_only.page(params[:page])
     else
       @user_articles = nil
       @articles_read_only = Article.all
+      @articles_read_only = @articles_read_only.page(params[:page])
     end
   end
 
