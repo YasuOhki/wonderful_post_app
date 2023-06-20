@@ -5,8 +5,7 @@ class ArticlesController < ApplicationController
   def index
     if user_signed_in?
       tmp_user = User.all
-      tmp_user = tmp_user[current_user.id]
-
+      tmp_user = tmp_user[current_user.id - 1]
       if tmp_user != nil
         @user_articles = tmp_user.articles
         @user_articles = @user_articles.page(params[:page])
