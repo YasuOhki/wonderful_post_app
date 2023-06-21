@@ -41,7 +41,7 @@
     </tbody>
   </table>
   <% if @user_articles != nil %>
-    <%= paginate @user_articles %>
+    <%= paginate @user_articles, theme: 'twitter-bootstrap-4' %>
   <% end %>
 <% end %>
 
@@ -65,5 +65,5 @@
     <% end %>
   </tbody>
 </table>
-<%= paginate @articles_read_only %>
+<%= paginate @articles_read_only, theme: 'twitter-bootstrap-4' %>
 <br>
