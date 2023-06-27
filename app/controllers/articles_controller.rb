@@ -1,34 +1,20 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[ show edit update destroy ]
+  # index, showはログイン状態とは無関係に処理するため、ログアウト状態ではスキップする
+  skip_before_action :authenticate_user!, only: %i[ index show ]
+  before_action :set_article, only: %i[ edit update destroy ]
 
   # GET /article
   def index
-    if user_signed_in?
-      tmp_user = User.all
-      tmp_user = tmp_user[current_user.id - 1]
-      if tmp_user != nil
-        @user_articles = tmp_user.articles
-        @user_articles = @user_articles.page(params[:page])
-      else
-        @user_articles = nil
-      end
-
-      @articles_read_only = Article.where.not(user_id: current_user.id)
-      @articles_read_only = @articles_read_only.page(params[:page])
-    else
-      @user_articles = nil
-      @articles_read_only = Article.all
-      @articles_read_only = @articles_read_only.page(params[:page])
-    end
+    @article = Article.all
   end
 
   # GET /article/1
   def show
+    @article = Article.find(params[:id])
   end
 
   # GET /article/new
   def new
-    @article = Article.new
   end
 
   # GET /article/1/edit
@@ -37,7 +23,8 @@ class ArticlesController < ApplicationController
 
   # POST /article
   def create
-    @article = Article.new(article_params)
+    #@article = Article.new(article_params)
+    @article = current_user.articles.new(article_params)
 
     respond_to do |format|
       if @article.save
@@ -71,7 +58,7 @@ class ArticlesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
-      @article = Article.find(params[:id])
+      @article = current_user.articles.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
