@@ -8,6 +8,7 @@
     <%= @article.content %>
   </div>
 </div>
-
-<%= link_to t('.edit'), edit_article_path(@article), class: "btn btn-warning" %>
+<% if user_signed_in? && @article.user_id == current_user.id %>
+  <%= link_to t('.edit'), edit_article_path(@article), class: "btn btn-warning" %>
+<% end %>
 <%= link_to t('.back'), articles_path, class: "btn btn-secondary" %>

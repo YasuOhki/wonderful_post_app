@@ -5,48 +5,12 @@
 <% else %>
   <p> ログアウト中 </p>
 <% end %>
+<!-- デバッグ用表示ここまで -->
 
-<h1><%= t('.all_articles')%></h1>
+
 <%= link_to t('.serach'), "#", class: "btn btn-primary" %>
 
-<% if user_signed_in? %>
-  <br><%= link_to t('.new'), new_article_path %>
-<% else %>
-  <br><%= "記事の作成にはログインが必要です" %>
-<% end %>
-
-<% if user_signed_in? %>
-  <p>ログインユーザの記事</p>
-  <table>
-    <thead>
-      <tr>
-        <th><%= t('.title') %></th>
-        <th><%= t('.content') %></th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% if @user_articles != nil %>
-        <% @user_articles.each do |article| %>
-          <tr>
-            <td><%= article.title %></td>
-            <td><%= article.content %></td>
-            <td><%= link_to t('.show'), article, class: "btn btn-success" %></td>
-            <td><%= link_to t('.edit'), edit_article_path(article), class: "btn btn-warning" %></td>
-            <td><%= link_to t('.destroy'), article, class: "btn btn-danger", method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
-          </tr>
-        <% end %>
-      <% end %>
-    </tbody>
-  </table>
-  <% if @user_articles != nil %>
-    <%= paginate @user_articles, theme: 'twitter-bootstrap-4' %>
-  <% end %>
-<% end %>
-
-<br>
-<p> すべての記事 </p>
+<h1><%= t 'articles.index.all_articles' %></h1>
 <table>
   <thead>
     <tr>
@@ -56,7 +20,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @articles_read_only.each do |article| %>
+    <% @article.each do |article| %>
       <tr>
         <td><%= article.title %></td>
         <td><%= article.content %></td>
@@ -65,5 +29,6 @@
     <% end %>
   </tbody>
 </table>
-<%= paginate @articles_read_only, theme: 'twitter-bootstrap-4' %>
+<!-- Task.11-2修正時にcontroller側のページネーションの実装を一時的に削除したため、一旦ページネーションを無しにする -->
+
 <br>
