@@ -41,7 +41,7 @@ ja:
       sign_out: ログアウト
       sign_in: 新規登録
   mypage:
-    index:
+    show:
       new: 記事作成
       title: 題名
       content: 内容
