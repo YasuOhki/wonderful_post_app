@@ -37,9 +37,9 @@ ja:
   layouts:
     navbar:
       my_page: マイページ
-      log_in: ログイン
+      sign_in: ログイン
       sign_out: ログアウト
-      sign_in: 新規登録
+      sign_up: 新規登録
   mypage:
     show:
       new: 記事作成
