@@ -15,6 +15,7 @@ class ArticlesController < ApplicationController
 
   # GET /article/new
   def new
+    @article = current_user.articles.new
   end
 
   # GET /article/1/edit
@@ -23,7 +24,6 @@ class ArticlesController < ApplicationController
 
   # POST /article
   def create
-    #@article = Article.new(article_params)
     @article = current_user.articles.new(article_params)
 
     respond_to do |format|
