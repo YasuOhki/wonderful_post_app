@@ -11,7 +11,7 @@ num_user = 3
 num_article_by_user = 50
 
 num_user.times do |i|
-  User.create!(
+  User.find_or_create_by(
     email: sprintf("user%03d@test.com", i+1),
     password: "test1234"
   )
@@ -19,7 +19,7 @@ num_user.times do |i|
   tmp_user = tmp_user[i]
 
   num_article_by_user.times do |j|
-    tmp_user.articles.create!(
+    tmp_user.articles.find_or_create_by(
       title: sprintf("No.%d:user%03dの記事", j+1, i+1),
       content: sprintf("No.%d:user%03dの記事の本文", j+1, i+1)
     )
