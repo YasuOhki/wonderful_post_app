@@ -1,7 +1,9 @@
-<p> ログイン中_<%= current_user.email %> </p>
+<p> ログイン中: <%= current_user.email %> </p>
+
+<h1>マイページ</h1>
+<%= render partial: "search" %>
 
 <br><%= link_to t('.new'), new_article_path %>
-
 <table>
   <thead>
     <tr>
@@ -23,5 +25,7 @@
     <% end %>
   </tbody>
 </table>
+
+<%= paginate @articles, theme: 'twitter-bootstrap-4' %>
 
 <br>
