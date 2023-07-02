@@ -6,8 +6,7 @@ class ArticlesController < ApplicationController
 
   # GET /article
   def index
-    #@article = Article.all.page(params[:page])
-    #@article = @article.page(params[:page])
+    @article = @article.page(params[:page])
   end
 
   # GET /article/1
@@ -64,11 +63,9 @@ class ArticlesController < ApplicationController
     end
 
     def set_search_article
-      #binding.pry
       if params[:title] == nil
         @article = Article.all
       else
-        #@article = Article.where(title: params[:title])
         @article = Article.where("title LIKE ?", "%#{params[:title]}%")
       end
     end
