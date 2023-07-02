@@ -8,9 +8,10 @@
 <!-- デバッグ用表示ここまで -->
 
 
-<%= link_to t('.serach'), "#", class: "btn btn-primary" %>
+<!--<%= link_to t('.serach'), "#", class: "btn btn-primary" %> -->
 
 <h1><%= t 'articles.index.all_articles' %></h1>
+<%= render partial: "search" %>
 <table>
   <thead>
     <tr>
@@ -29,6 +30,6 @@
     <% end %>
   </tbody>
 </table>
-<!-- Task.11-2修正時にcontroller側のページネーションの実装を一時的に削除したため、一旦ページネーションを無しにする -->
+
 
 <br>

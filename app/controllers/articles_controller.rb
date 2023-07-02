@@ -2,10 +2,12 @@ class ArticlesController < ApplicationController
   # index, showはログイン状態とは無関係に処理するため、ログアウト状態ではスキップする
   skip_before_action :authenticate_user!, only: %i[ index show ]
   before_action :set_article, only: %i[ edit update destroy ]
+  before_action :set_search_article, only:  %i[index]
 
   # GET /article
   def index
-    @article = Article.all
+    #@article = Article.all.page(params[:page])
+    #@article = @article.page(params[:page])
   end
 
   # GET /article/1
@@ -59,6 +61,16 @@ class ArticlesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_article
       @article = current_user.articles.find(params[:id])
+    end
+
+    def set_search_article
+      #binding.pry
+      if params[:title] == nil
+        @article = Article.all
+      else
+        #@article = Article.where(title: params[:title])
+        @article = Article.where("title LIKE ?", "%#{params[:title]}%")
+      end
     end
 
     # Only allow a list of trusted parameters through.
