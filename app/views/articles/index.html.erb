@@ -7,7 +7,9 @@
 <% end %>
 <!-- デバッグ用表示ここまで -->
 
-<h1><%= t("articles.index.all_articles") %></h1>
+
+<h1><%= t 'articles.index.all_articles' %></h1>
+
 <%= render partial: "search" %>
 <table>
   <thead>
@@ -20,7 +22,12 @@
   <tbody>
     <% @article.each do |article| %>
       <tr>
-        <td><%= article.title %></td>
+        <td>
+          <%= article.title %>
+          <% article.tag.each do |tag| %>
+            <span class="badge rounded-pill bg-primary"><%= tag.name%></span>
+          <% end %>
+        </td>
         <td><%= article.content %></td>
         <td><%= link_to t("articles.index.show"), article, class: "btn btn-success" %></td>
       </tr>
