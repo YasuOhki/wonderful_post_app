@@ -16,7 +16,11 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td><%= article.title %></td>
+        <td><%= article.title %>
+          <% article.tag.each do |tag| %>
+            <span class="badge rounded-pill bg-primary"><%= tag.name %>
+          <% end %>
+        </td>
         <td><%= article.content %></td>
         <td><%= link_to t('.show'), article, class: "btn btn-success" %></td>
         <td><%= link_to t('.edit'), edit_article_path(article), class: "btn btn-warning" %></td>

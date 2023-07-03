@@ -7,9 +7,6 @@
 <% end %>
 <!-- デバッグ用表示ここまで -->
 
-
-<!--<%= link_to t('.serach'), "#", class: "btn btn-primary" %> -->
-
 <h1><%= t 'articles.index.all_articles' %></h1>
 <%= render partial: "search" %>
 <table>
@@ -23,7 +20,12 @@
   <tbody>
     <% @article.each do |article| %>
       <tr>
-        <td><%= article.title %></td>
+        <td>
+          <%= article.title %>
+          <% article.tag.each do |tag| %>
+            <span class="badge rounded-pill bg-primary"><%= tag.name%></span>
+          <% end %>
+        </td>
         <td><%= article.content %></td>
         <td><%= link_to t('.show'), article, class: "btn btn-success" %></td>
       </tr>
