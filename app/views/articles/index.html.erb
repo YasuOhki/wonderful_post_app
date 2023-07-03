@@ -7,16 +7,13 @@
 <% end %>
 <!-- デバッグ用表示ここまで -->
 
-
-<!--<%= link_to t('.serach'), "#", class: "btn btn-primary" %> -->
-
-<h1><%= t 'articles.index.all_articles' %></h1>
+<h1><%= t("articles.index.all_articles") %></h1>
 <%= render partial: "search" %>
 <table>
   <thead>
     <tr>
-      <th><%= t('.title') %></th>
-      <th><%= t('.content') %></th>
+      <th><%= t("articles.index.title") %></th>
+      <th><%= t("articles.index.content") %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -25,7 +22,7 @@
       <tr>
         <td><%= article.title %></td>
         <td><%= article.content %></td>
-        <td><%= link_to t('.show'), article, class: "btn btn-success" %></td>
+        <td><%= link_to t("articles.index.show"), article, class: "btn btn-success" %></td>
       </tr>
     <% end %>
   </tbody>
