@@ -3,6 +3,6 @@ class Article < ApplicationRecord
   validates :content, presence: true, uniqueness: {case_sensitive: false}
 
   belongs_to :user
-  has_many :tag_article
-  has_many :tag, through: :tag_article
+  has_many :tag_articles, dependent: :destroy
+  has_many :tags, through: :tag_articles
 end
