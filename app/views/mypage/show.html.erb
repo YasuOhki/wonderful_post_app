@@ -17,7 +17,7 @@
     <% @articles.each do |article| %>
       <tr>
         <td><%= article.title %>
-          <% article.tag.each do |tag| %>
+          <% article.tags.each do |tag| %>
             <span class="badge rounded-pill bg-primary"><%= tag.name %>
           <% end %>
         </td>

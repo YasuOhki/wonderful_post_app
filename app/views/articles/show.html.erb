@@ -3,7 +3,7 @@
 <div class="card">
   <div class="card-header">
     <%= @article.title %>
-      <% @article.tag.each do |tag| %>
+      <% @article.tags.each do |tag| %>
         <span class="badge rounded-pill bg-primary"><%= tag.name%></span>
       <% end %>
   </div>
