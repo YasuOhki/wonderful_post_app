@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
       if @article.save
         article_tag_ids = params[:article][:tag_ids].reject{|v| v.empty?}   # ラジオボタンで選択されたtag_idを取得
         article_tag_ids.each do |id|
-          @article.tag_article.find_or_create_by!(article_id: @article.id, tag_id: id)
+          @article.tag_articles.find_or_create_by!(article_id: @article.id, tag_id: id)
         end
         format.html { redirect_to article_url(@article), notice: t('.success') }
       else
@@ -66,11 +66,13 @@ class ArticlesController < ApplicationController
       @article = current_user.articles.find(params[:id])
 
       if params[:article] != nil
-        delte_id = @article.tag_article.first.article_id                    # 複数のarticle_idがparamsで渡されることはないため、最初のレコードのarticle_idを参照する
-        @article.tag_article.destroy_by(article_id: delte_id)               # タグ付けを一旦削除
-        article_tag_ids = params[:article][:tag_ids].reject{|v| v.empty?}   # ラジオボタンで選択されたtag_idを取得
+        if @article.tag_articles.first != nil
+          delte_id = @article.tag_articles.first.article_id                    # 複数のarticle_idがparamsで渡されることはないため、最初のレコードのarticle_idを参照する
+          @article.tag_articles.destroy_by(article_id: delte_id)               # タグ付けを一旦削除
+        end
+        article_tag_ids = params[:article][:tag_ids].reject{|v| v.empty?}     # ラジオボタンで選択されたtag_idを取得
         article_tag_ids.each do |id|
-          @article.tag_article.find_or_create_by!(tag_id: id)
+          @article.tag_articles.find_or_create_by!(tag_id: id)
         end
       end
     end
