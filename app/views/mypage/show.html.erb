@@ -14,7 +14,7 @@
   </thead>
 
   <tbody>
-    <% @articles.each do |article| %>
+    <% @articles.eager_load(:tags).each do |article| %>
       <tr>
         <td><%= article.title %>
           <% article.tags.each do |tag| %>

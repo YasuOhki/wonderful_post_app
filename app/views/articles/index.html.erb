@@ -20,7 +20,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @article.each do |article| %>
+    <% @article.eager_load(:tags).each do |article| %>
       <tr>
         <td>
           <%= article.title %>
