@@ -10,7 +10,7 @@ end
 private
   def set_search_article
     if params[:title] == nil
-      @articles = current_user.articles
+      @articles = current_user.articles.includes(:tags)
     else
       @articles = current_user.articles.where("title LIKE ?", "%#{params[:title]}%")
     end

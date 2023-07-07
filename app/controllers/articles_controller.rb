@@ -79,7 +79,7 @@ class ArticlesController < ApplicationController
 
     def set_search_article
       if params[:title] == nil
-        @article = Article.all
+        @article = Article.all.includes(:tags)
       else
         @article = Article.where("title LIKE ?", "%#{params[:title]}%")
       end
