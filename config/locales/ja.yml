@@ -53,6 +53,10 @@ ja:
       confirm:  本当にログアウトしますか？
 
   activerecord:
+    attributes:
+      article:
+        title: 題名
+        content: 内容
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
