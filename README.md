@@ -26,6 +26,7 @@ Things you may want to cover:
   $ bundle exec rails  server
 
 * Services (job queues, cache servers, search engines, etc.)
+
   This application has the following features:
 
   - Viewing a list and details of articles created by all users.
